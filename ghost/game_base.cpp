@@ -2632,8 +2632,6 @@ bool CBaseGame :: EventPlayerAction( CGamePlayer *player, CIncomingAction *actio
 	if( !action->GetAction( )->empty( ) )
 	{
     BYTEARRAY *ActionData = action->GetAction( );
-  	unsigned int i = 0;
-
     uint32_t PacketLength = ActionData->size( );
   
     if( PacketLength > 0 )
@@ -2648,6 +2646,7 @@ bool CBaseGame :: EventPlayerAction( CGamePlayer *player, CIncomingAction *actio
       unsigned int PreviousID = 255;
   
       bool Failed = false;
+      bool Notified = false;
   
       while( n < PacketLength && !Failed )
       {
@@ -2675,9 +2674,13 @@ bool CBaseGame :: EventPlayerAction( CGamePlayer *player, CIncomingAction *actio
               }
               ++n;
               
-              // notify everyone that a player is saving the game
-           	  CONSOLE_Print( "[GAME: " + m_GameName + "] player [" + player->GetName( ) + "] is saving the game" );
-           	  SendAllChat( m_GHost->m_Language->PlayerIsSavingTheGame( player->GetName( ) ) );
+           	  // notify everyone that a player is saving the game
+           	  if ( !Notified )
+           	  {
+           	    CONSOLE_Print( "[GAME: " + m_GameName + "] player [" + player->GetName( ) + "] is saving the game" );
+           	    SendAllChat( m_GHost->m_Language->PlayerIsSavingTheGame( player->GetName( ) ) );
+           	    Notified = true;
+           	  }
             break;	
             case 0x07 : n += 5; break;
             case 0x08 : Failed = true; break;
