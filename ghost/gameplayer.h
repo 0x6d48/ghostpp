@@ -126,6 +126,7 @@ private:
 	queue<BYTEARRAY> m_GProxyBuffer;
 	uint32_t m_GProxyReconnectKey;
 	uint32_t m_LastGProxyAckTime;
+	uint32_t m_TimeActive;           // AFK detection
 
 public:
 	CGamePlayer( CGameProtocol *nProtocol, CBaseGame *nGame, CTCPSocket *nSocket, unsigned char nPID, string nJoinedRealm, string nName, BYTEARRAY nInternalIP, bool nReserved );
@@ -206,6 +207,11 @@ public:
 	uint32_t GetPing( bool LCPing );
 
 	void AddLoadInGameData( BYTEARRAY nLoadInGameData )								{ m_LoadInGameData.push( nLoadInGameData ); }
+
+	// AFK detection
+
+  uint32_t  GetTimeActive( )     { return m_TimeActive; }
+  void SetTimeActive      ( uint32_t nTimeActive )          { m_TimeActive = nTimeActive; } 
 
 	// processing functions
 
