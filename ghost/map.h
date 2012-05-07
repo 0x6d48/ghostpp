@@ -120,6 +120,7 @@ private:
 	uint32_t m_MapDefaultPlayerScore;			// config value: map default player score (for matchmaking)
 	string m_MapLocalPath;						// config value: map local path
 	bool m_MapLoadInGame;
+	bool m_MapKickAfk;
 	string m_MapData;							// the map data itself, for sending the map to players
 	uint32_t m_MapNumPlayers;
 	uint32_t m_MapNumTeams;
@@ -154,6 +155,7 @@ public:
 	uint32_t GetMapDefaultPlayerScore( )	{ return m_MapDefaultPlayerScore; }
 	string GetMapLocalPath( )				{ return m_MapLocalPath; }
 	bool GetMapLoadInGame( )				{ return m_MapLoadInGame; }
+	bool GetMapKickAfk( )					{ return m_MapKickAfk; }
 	string *GetMapData( )					{ return &m_MapData; }
 	uint32_t GetMapNumPlayers( )			{ return m_MapNumPlayers; }
 	uint32_t GetMapNumTeams( )				{ return m_MapNumTeams; }
