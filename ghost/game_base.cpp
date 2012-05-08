@@ -1262,9 +1262,9 @@ void CBaseGame :: SendAllActions( )
 			Action = m_Actions.front( );
 			m_Actions.pop( );
 
-			// check if adding the next action to the sub actions queue would put us over the limit (1452 because the INCOMING_ACTION and INCOMING_ACTION2 packets use an extra 8 bytes)
+			// check if adding the next action to the sub actions queue would put us over the limit (1027 because the INCOMING_ACTION and INCOMING_ACTION2 packets use an extra 8 bytes)
 
-			if( SubActionsLength + Action->GetLength( ) > 1452 )
+			if( SubActionsLength + Action->GetLength( ) > 1027 )
 			{
 				// we'd be over the limit if we added the next action to the sub actions queue
 				// so send everything already in the queue and then clear it out
