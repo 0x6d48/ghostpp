@@ -1262,6 +1262,16 @@ void CBaseGame :: SendAllActions( )
 			Action = m_Actions.front( );
 			m_Actions.pop( );
 
+			// when autohosting prevent players from saving the game
+
+			if (!m_GHost->m_AutoHostGameName.empty()) {
+				if ((*Action->GetAction())[0] == 0x6) {
+					SendAllChat("[Anti-Save] " + GetPlayerFromPID(Action->GetPID())->GetName() + " tried to save the game. Justice be done.");
+
+					continue;
+				}
+			}
+
 			// check if adding the next action to the sub actions queue would put us over the limit (1027 because the INCOMING_ACTION and INCOMING_ACTION2 packets use an extra 8 bytes)
 
 			if( SubActionsLength + Action->GetLength( ) > 1027 )
