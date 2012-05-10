@@ -1014,6 +1014,17 @@ bool CGame :: EventPlayerBotCommand( CGamePlayer *player, string command, string
 			}
 
 			//
+			// !GO
+			//
+			
+			else if( Command == "go" )
+			{
+				// start game immediately skipping checks
+				m_CountDownCounter = 0;
+				StartCountDown( true );
+			}
+
+			//
 			// !HCL
 			//
 
