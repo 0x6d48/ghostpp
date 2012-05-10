@@ -117,6 +117,7 @@ public:
 	uint32_t m_LobbyTimeLimit;				// config value: auto close the game lobby after this many minutes without any reserved players
 	uint32_t m_Latency;						// config value: the latency (by default)
 	uint32_t m_SyncLimit;					// config value: the maximum number of packets a player can fall out of sync before starting the lag screen (by default)
+	bool m_AutoLatency;						// config value: automatically set latency
 	bool m_VoteKickAllowed;					// config value: if votekicks are allowed or not
 	uint32_t m_VoteKickPercentage;			// config value: percentage of players required to vote yes for a votekick to pass
 	string m_DefaultMap;					// config value: default map (map.cfg)

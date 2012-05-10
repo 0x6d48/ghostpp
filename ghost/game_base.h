@@ -126,6 +126,7 @@ protected:
 	bool m_AutoSave;								// if we should auto save the game before someone disconnects
 	bool m_MatchMaking;								// if matchmaking mode is enabled
 	bool m_LocalAdminMessages;						// if local admin messages should be relayed or not
+	bool m_AutoLatency;								// if latency gets set to average ping on game start
   uint32_t m_LastProcessedTicks;
 
 public:

@@ -1369,6 +1369,7 @@ void CGHost :: SetConfigs( CConfig *CFG )
 	m_LobbyTimeLimit = CFG->GetInt( "bot_lobbytimelimit", 10 );
 	m_Latency = CFG->GetInt( "bot_latency", 100 );
 	m_SyncLimit = CFG->GetInt( "bot_synclimit", 50 );
+	m_AutoLatency = CFG->GetInt( "bot_autolatency", 0 ) == 0 ? false : true;
 	m_VoteKickAllowed = CFG->GetInt( "bot_votekickallowed", 1 ) == 0 ? false : true;
 	m_VoteKickPercentage = CFG->GetInt( "bot_votekickpercentage", 100 );
 
