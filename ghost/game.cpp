@@ -1498,7 +1498,7 @@ bool CGame :: EventPlayerBotCommand( CGamePlayer *player, string command, string
 			// !START
 			//
 
-			else if( Command == "start" && !m_CountDownStarted )
+			else if( ( Command == "start" || Command == "s" ) && !m_CountDownStarted )
 			{
 				// if the player sent "!start force" skip the checks and start the countdown
 				// otherwise check that the game is ready to start
