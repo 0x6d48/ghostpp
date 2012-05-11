@@ -1017,7 +1017,7 @@ bool CGame :: EventPlayerBotCommand( CGamePlayer *player, string command, string
 			// !GO
 			//
 			
-			else if( Command == "go" )
+			else if( Command == "go" && !m_CountDownStarted )
 			{
 				uint32_t n = 0;
 				stringstream ss;
@@ -1029,7 +1029,9 @@ bool CGame :: EventPlayerBotCommand( CGamePlayer *player, string command, string
 				}
 
 				StartCountDown( true );
-				m_CountDownCounter = n;
+
+				if( n < m_CountDownCounter )
+					m_CountDownCounter = n;
 			}
 
 			//
