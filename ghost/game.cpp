@@ -1019,9 +1019,17 @@ bool CGame :: EventPlayerBotCommand( CGamePlayer *player, string command, string
 			
 			else if( Command == "go" )
 			{
-				// start game immediately skipping checks
-				m_CountDownCounter = 0;
+				uint32_t n = 0;
+				stringstream ss;
+
+				if( !Payload.empty( ) )
+				{
+					ss << Payload;
+					ss >> n;
+				}
+
 				StartCountDown( true );
+				m_CountDownCounter = n;
 			}
 
 			//
